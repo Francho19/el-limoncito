@@ -3,34 +3,87 @@ Cada tarde, El Limoncito recibe clientes que dejan su ropa para recoger el mismo
 
 Analisis:
 
--Ra1: Diseña un programa aplicando estructuras de control, validaciones, funciones y clases que representen los elementos del sistema de manera eficiente y organizada.
-Que nos piden:
--Calcular subtotales por ítem según cantidad.  
--Sumar subtotales para obtener el el total bruto.
--Si el cliente elige servicio s, agregar recargo del 10%.  
--Si el total final supera $60.000 , aplicar descuento del 5% (una sola vez).  
--No permitir cantidades menores o iguales a 0 ni totales negativos.  
--Al confirmar la orden, esta no puede editarse.  
--Generar un resumen con:
--Datos del cliente  
--Detalle con precios aplicados  
--Total bruto  
--Recargo  
--Descuento  
--Total final
-Crear unas clases que van en el domain:
-1.Cliente– guarda datos del cliente (nombre, teléfono).  
-2.Item – representa una prenda y calcula su subtotal.  
-3.Orden – gestiona los ítems, calcula totales, recargos y descuentos.  
-4.Catalogo – contiene los productos y precios disponibles.  
-5.Main– controla el flujo principal del programa.
+ Descripción del Proyecto
 
--Ra2: Servicios:
-Encargada de: Registrar nombre, teléfono y tipo de servicio (normal o exprés).
-Agregar prendas con su cantidad.
-Calcular subtotal, recargo, descuento y total final.
-Mostrar un resumen claro con los valores aplicados.
-Métodos principales:
-agregarPrenda(String prenda, int cantidad)
-calcularTotal()
-mostrarCliente()
+Este proyecto implementa un sistema simple para la gestión de órdenes de compra.
+Permite:
+
+Registrar clientes
+
+Crear órdenes asociadas a un cliente
+
+Crear ítems basados en un catálogo de precios
+
+Agregar ítems a una orden
+
+Calcular subtotales y totales
+
+Confirmar la orden y evitar modificaciones posteriores
+
+
+ Estructura del Proyecto
+
+Archivo	Descripción
+
+Catalogo.java	Contiene los precios base para distintos tipos de productos y calcula subtotales.
+
+Cliente.java	Representa al cliente con su nombre e información de contacto.
+
+Item.java	Representa un producto solicitado con tipo y cantidad. Calcula su subtotal usando el catálogo.
+
+Orden.java	Maneja la lista de ítems de una orden, el cálculo del total y la confirmación.
+
+App.java	Ejecuta un ejemplo de uso del sistema.
+
+ Requerimientos de Aceptación
+
+1 Catálogo
+
+Debe proporcionar precios válidos para todos los tipos definidos.
+
+Si se solicita un tipo inválido, debe lanzar una excepción.
+
+Debe calcular correctamente subtotales:
+subtotal = precio × cantidad
+
+2.Cliente
+
+Debe permitir registrar nombre y contacto válidos.
+
+Debe mostrar su información en un formato legible al convertirlo a texto.
+
+3.Ítem
+
+Debe aceptar únicamente cantidades mayores a cero.
+
+Debe calcular correctamente el subtotal usando el catálogo.
+
+Debe almacenar correctamente el tipo y la cantidad.
+
+4.Orden
+
+Una orden debe crearse asociada a un cliente válido.
+
+Debe permitir agregar ítems mientras no esté confirmada.
+
+No debe permitir agregar ítems una vez confirmada.
+
+No debe permitir confirmarse si está vacía.
+
+Debe calcular el total sumando los subtotales de cada ítem.
+
+Al confirmarse, debe cambiar su estado a confirmada.
+
+5.App (flujo general)
+
+Debe demostrar la creación de un cliente.
+
+Crear una orden.
+
+Agregar varios ítems válidos.
+
+Mostrar el subtotal de cada ítem y el total final.
+
+Confirmar la orden correctamente.
+
+
